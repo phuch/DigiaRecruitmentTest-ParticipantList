@@ -1,0 +1,104 @@
+.App-header {
+  background-color: #222;
+  padding: 32px;
+  color: white;
+  width: 100%;
+}
+
+.App-title {
+  margin: 0;
+  font-size: 1.5em;
+  width: 100%
+}
+
+.App-content {
+  margin: 32px;
+}
+
+.App-intro {
+  font-size: 1.5em;
+}
+
+table {
+  border-collapse: collapse;
+  background-color: white;
+  width: 100%;
+}
+
+tr {
+  border-bottom: 1px solid #EEEEEE;
+}
+
+td {
+  padding-left: 24px;
+}
+
+.Table-header {
+  height: 48px;
+}
+
+.Table-row {
+  height:72px;
+}
+
+.Table-header td{
+  font-size: 14px;
+  color:#757575;
+  line-height: 16px;
+  font-weight: 500;
+}
+
+.Table-row td {
+  font-size: 16px;
+  color:#505050;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+.Signup-form {
+  position: relative;
+  padding: 16px;
+  background-color: white;
+  margin-bottom: 10px;
+}
+
+.Signup-form input {
+  font-size: 16px;
+  height: 40px;
+  padding-left: 16px;
+  margin-right: 16px;
+  background-color: #F1F1F1;
+  border: 1px solid #E8E8E8;
+}
+
+.Form-errors {
+  color: #CA1313;
+  text-align: center;
+  font-weight: 600;
+}
+
+button:focus {
+  outline: 0;
+}
+
+.Signup-form button {
+  position: absolute;
+  right: 20px;
+  padding: 12px 20px;
+  color: #757575;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: #F1F1F1;
+  border: 1px solid #E8E8E8;
+}
+
+.imageButton {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
