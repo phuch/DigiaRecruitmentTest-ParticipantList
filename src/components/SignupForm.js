@@ -89,7 +89,7 @@ class SignupForm extends Component{
 
   render() {
     return (
-      <form className="Signup-form" onSubmit={this.submitHandler} ref={input => this.signupForm = input}>
+      <form className="Main-form" onSubmit={this.submitHandler} ref={input => this.signupForm = input}>
         <div>
           <FormErrors formErrors={this.state.formErrors}/>
         </div>

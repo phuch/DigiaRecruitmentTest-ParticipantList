@@ -41,9 +41,17 @@ class App extends Component {
   }
 
   editParticipant = (index, newInfo) => {
-    console.log('editing');
-    const participant = Object.assign({}, this.state.participants[index]);
+    const participants = Object.assign([], this.state.participants);
+    const participant = participants[index];
     
+    participant.name = newInfo.name;
+    participant.email = newInfo.email;
+    participant.phone = newInfo.phone;
+
+    this.setState({
+      participants: participants
+    })
+
   }
 
   delParticipant = (index) => {
@@ -52,6 +60,17 @@ class App extends Component {
     this.setState({
       participants: participants
     });
+  }
+
+  sortParticipant = () => {
+    const participants = Object.assign([], this.state.participants);
+    const names = participants
+                    .map((participant) => {
+                      return participant.name;
+                    })
+                    .sort();
+    
+    console.log(names);
   }
 
   render() {
@@ -70,6 +89,7 @@ class App extends Component {
           <ParticipantsTable participants={this.state.participants} 
                              delParticipant={this.delParticipant}
                              editParticipant={this.editParticipant}
+                             sortParticipant={this.sortParticipant}
           />
         </main>
       </div>
