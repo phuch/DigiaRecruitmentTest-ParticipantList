@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import editIcon from 'images/edit.png';
+import deleteIcon from 'images/delete.png';
 
 class ParticipantsTable extends Component {
 
@@ -98,12 +100,12 @@ class ParticipantsTable extends Component {
           <td width="25%">{participant.phone}</td>
           <td width="10%">
             <button className='imageButton'>
-              <img onClick={() => this.toggleEditing(participant.id)} src='/edit.png' alt='edit' width='24' height='24'/>
+              <img onClick={() => this.toggleEditing(participant.id)} src={editIcon} alt='edit' width='24' height='24'/>
             </button>
           </td>
           <td width="10%">
             <button className='imageButton'>
-              <img onClick={() => this.props.delParticipant(index)} src='/delete.png' alt='delete' width='24' height='24'/>
+              <img onClick={() => this.props.delParticipant(index)} src={deleteIcon} alt='delete' width='24' height='24'/>
             </button>
           </td>
         </tr>
