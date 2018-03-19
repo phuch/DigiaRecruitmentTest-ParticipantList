@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import './App.css';
 import ParticipantsTable from './components/ParticipantsTable';
 import SignupForm from './components/SignupForm';
@@ -23,7 +23,7 @@ class App extends Component {
         email: 'mil.christine@gmail.com',
         phone: '0235467896',
       }]
-    }
+    };
   }
 
   addParticipant = (participant) => {
@@ -32,13 +32,13 @@ class App extends Component {
       name: participant.name,
       email: participant.email,
       phone: participant.phone
-    }
+    };
 
     this.setState({
       participants: [...this.state.participants, newParticipant]
     });
 
-  }
+  };
 
   editParticipant = (index, newInfo) => {
     const participants = Object.assign([], this.state.participants);
@@ -52,7 +52,7 @@ class App extends Component {
       participants: participants
     })
 
-  }
+  };
 
   delParticipant = (index) => {
     const participants = Object.assign([], this.state.participants);
@@ -60,18 +60,63 @@ class App extends Component {
     this.setState({
       participants: participants
     });
-  }
+  };
 
-  sortParticipant = () => {
+  sortAsc = (header) => {
     const participants = Object.assign([], this.state.participants);
-    const names = participants
-                    .map((participant) => {
-                      return participant.name;
-                    })
-                    .sort();
-    
-    console.log(names);
-  }
+
+    switch (header) {
+      case('name'):
+        participants.sort((a,b) => {
+          return (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0);
+        });
+        break;
+      case('email'):
+        participants.sort((a,b) => {
+          return (a.email > b.email) ? 1 : ((b.email > a.email) ? -1 : 0);
+        });
+        break;
+      case('phone'):
+        participants.sort((a,b) => {
+          return a.phone-b.phone;
+        });
+        break;
+      default:
+        break;
+    }
+
+    this.setState({
+      participants: participants
+    })
+  };
+
+  sortDesc = (header) => {
+    const participants = Object.assign([], this.state.participants);
+
+    switch (header) {
+      case('name'):
+        participants.sort((a,b) => {
+          return (b.name > a.name) ? 1 : ((a.name > b.name) ? -1 : 0);
+        });
+        break;
+      case('email'):
+        participants.sort((a,b) => {
+          return (b.email > a.email) ? 1 : ((a.email > b.email) ? -1 : 0);
+        });
+        break;
+      case('phone'):
+        participants.sort((a,b) => {
+          return b.phone-a.phone;
+        });
+        break;
+      default:
+        break;
+    }
+
+    this.setState({
+      participants: participants
+    })
+  };
 
   render() {
     return (
@@ -83,13 +128,14 @@ class App extends Component {
           <p className="App-intro">
             List of participants
           </p>
-          <SignupForm participants={this.state.participants} 
+          <SignupForm participants={this.state.participants}
                       addParticipant={this.addParticipant}
           />
-          <ParticipantsTable participants={this.state.participants} 
+          <ParticipantsTable participants={this.state.participants}
                              delParticipant={this.delParticipant}
                              editParticipant={this.editParticipant}
-                             sortParticipant={this.sortParticipant}
+                             sortAsc={this.sortAsc}
+                             sortDesc={this.sortDesc}
           />
         </main>
       </div>

@@ -5,8 +5,9 @@ class ParticipantsTable extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isEditing: null
-    }
+      isEditing: null,
+      isAscending: true,
+    };
     this.initialState = this.state
   }
 
@@ -14,18 +15,29 @@ class ParticipantsTable extends Component {
     this.setState({
       isEditing: id
     });
-  }
+  };
 
   editHandler = (index, e) => {
     const newInfo = {
       name: this.fullName.value,
       email: this.emailAdd.value,
       phone: this.phoneNum.value
-    }
+    };
      
     this.props.editParticipant(index, newInfo);
     this.setState(this.initialState);
-  }
+  };
+
+  sortHandler = (header) => {
+    this.setState({
+      isAscending: !this.state.isAscending
+    });
+    if (this.state.isAscending) {
+      this.props.sortAsc(header);
+    } else {
+      this.props.sortDesc(header);
+    }
+  };
 
   renderTableRow = (participant, index) => {
     if(this.state.isEditing === participant.id) {
@@ -97,16 +109,16 @@ class ParticipantsTable extends Component {
         </tr>
       );
     }
-  }
+  };
 
   render() {
     return (
       <table>
         <thead>
           <tr className="Table-header">
-            <td onClick={this.props.sortParticipant}>Name</td>
-            <td>E-mail address</td>
-            <td>Phone number</td>
+            <td onClick={() => this.sortHandler('name')}>Name</td>
+            <td onClick={() => this.sortHandler('email')}>E-mail address</td>
+            <td onClick={() => this.sortHandler('phone')}>Phone number</td>
             <td></td>
             <td></td>
           </tr>
