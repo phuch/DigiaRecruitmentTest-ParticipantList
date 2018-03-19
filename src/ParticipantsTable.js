@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import editIcon from 'images/edit.png';
-import deleteIcon from 'images/delete.png';
+import editIcon from './edit.png';
+import deleteIcon from './delete.png';
 
 class ParticipantsTable extends Component {
 

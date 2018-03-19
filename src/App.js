@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
-import ParticipantsTable from './components/ParticipantsTable';
-import SignupForm from './components/SignupForm';
+import ParticipantsTable from './ParticipantsTable.js';
+import SignupForm from './SignupForm.js';
 
 class App extends Component {
   constructor() {
