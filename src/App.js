@@ -122,7 +122,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">Integrify Spring Batch</h1>
+          <h1 className="App-title">Digia job applicant list</h1>
         </header>
         <main className="App-content">
           <p className="App-intro">
